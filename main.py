@@ -17,13 +17,15 @@ else:
 # Component 2: Generate Question - 17/5/22 - Generate a random Te Reo word from a list and substitute into a question. Then generate four possible English meanings with one being correct.- V1
 score = 0
 #Lists of words based on difficulty with English counterparts
-easy_set = {"Kia Ora", "Kai", "Aroha", "Iwi", "Marae", "Aotearoa", "Whānau", "Mahi", "Whenua", "Taonga"}
-easy_eng = {"Greetings", "Food", "Love", "Tribe", "Meeting Ground", "New Zealand", "Family", "Work", "Land", "Treasure"}
-easy_word = random.choice(tuple(easy_set))
-easy_A = random.choice(tuple(easy_eng))
-easy_B = random.choice(tuple(easy_eng))
-easy_C = random.choice(tuple(easy_eng))
-easy_D = random.choice(tuple(easy_eng))
+easy_tereo = ["Kia Ora", "Kai", "Aroha", "Iwi", "Marae", "Aotearoa", "Whānau", "Mahi", "Whenua", "Taonga"]
+easy_eng = ["Greetings", "Food", "Love", "Tribe", "Meeting Ground", "New Zealand", "Family", "Work", "Land", "Treasure"]
+easy_word = random.choice(easy_tereo)
+easy_A = random.choice(easy_eng)
+easy_B = random.choice(easy_eng)
+easy_C = random.choice(easy_eng)
+easy_D = random.choice(easy_eng)
+
+ans = dict(zip(easy_tereo, easy_eng))
 
 play_again = input("Press <enter> to play.").lower()
 if play_again == "":
