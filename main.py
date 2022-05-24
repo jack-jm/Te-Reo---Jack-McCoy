@@ -19,14 +19,16 @@ score = 0
 #Lists of words based on difficulty with English counterparts
 easy_tereo = ["Kia Ora", "Kai", "Aroha", "Iwi", "Marae", "Aotearoa", "Whānau", "Mahi", "Whenua", "Taonga"]
 easy_eng = ["Greetings", "Food", "Love", "Tribe", "Meeting Ground", "New Zealand", "Family", "Work", "Land", "Treasure"]
-easy_word = random.choice(easy_tereo)
-easy_A = random.choice(easy_eng)
-easy_B = random.choice(easy_eng)
-easy_C = random.choice(easy_eng)
-easy_D = random.choice(easy_eng)
+easy_A = random.choice(easy_tereo)
+easy_B = random.choice(easy_tereo)
+easy_C = random.choice(easy_tereo)
+easy_D = random.choice(easy_tereo)
 
-ans = dict(zip(easy_tereo, easy_eng))
+ans = dict(zip(easy_eng, easy_tereo))
+x = random.randint(easy_tereo)
+easy_word = easy_eng[x]
+y = easy_tereo[x]
 
 play_again = input("Press <enter> to play.").lower()
 if play_again == "":
-  input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, easy_B, easy_C, easy_D)).lower()
+  input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, y, easy_C, easy_D)).lower()
