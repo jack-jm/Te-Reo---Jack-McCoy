@@ -19,16 +19,39 @@ score = 0
 #Lists of words based on difficulty with English counterparts
 easy_tereo = ["Kia Ora", "Kai", "Aroha", "Iwi", "Marae", "Aotearoa", "Whānau", "Mahi", "Whenua", "Taonga"]
 easy_eng = ["Greetings", "Food", "Love", "Tribe", "Meeting Ground", "New Zealand", "Family", "Work", "Land", "Treasure"]
-easy_A = random.choice(easy_tereo)
-easy_B = random.choice(easy_tereo)
-easy_C = random.choice(easy_tereo)
-easy_D = random.choice(easy_tereo)
+
+#This selects 4 random options from the list of possible Te Reo answers and one replacement answer if one of the foru options is the same as the correct one.
+options = random.sample(easy_tereo, 5)
+easy_A = options[0]
+easy_B = options[1]
+easy_C = options[2]
+easy_D = options[3]
+replacement = options[4]
 
 ans = dict(zip(easy_eng, easy_tereo))
-x = random.randint(easy_tereo)
+x = random.randint(0,9)
 easy_word = easy_eng[x]
-y = easy_tereo[x]
+correct_word = easy_tereo[x]
+
+if easy_A == correct_word:
+  easy_A = replacement
+elif easy_B == correct_word:
+  easy_B = replacement
+elif easy_C == correct_word:
+  easy_C = replacement
+elif easy_D == correct_word:
+  easy_D = replacement
 
 play_again = input("Press <enter> to play.").lower()
 if play_again == "":
-  input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, y, easy_C, easy_D)).lower()
+  question_format = random.randint(1,4)
+  #This randomly selects the placement of the correct answer amongst the wrong answers.
+  if question_format == 1:
+      input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, correct_word, easy_B, easy_C, easy_D)).lower()
+  elif question_format == 2:
+          input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, correct_word, easy_C, easy_D)).lower()
+  elif question_format == 3:
+          input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, easy_B, correct_word, easy_D)).lower()
+  else:
+          input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, easy_B, easy_C, correct_word)).lower()
+    
