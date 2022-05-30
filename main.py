@@ -47,16 +47,38 @@ if play_again == "":
   question_format = random.randint(1,4)
   #This randomly selects the placement of the correct answer amongst the wrong answers.
   if question_format == 1:
-     q_a_input = input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, correct_word, easy_B, easy_C, easy_D)).lower()
+    q_a_input = input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, correct_word, easy_B, easy_C, easy_D)).lower()    
+    #Component 3: Check if user's answer is correct - 27/05/22 - Check if user's input matches correct answer and the either increase or decrease score.
     if q_a_input == "a":
-      print(correct)
-      
+     score = score + 1
+     print("That is correct! Your score is {}.".format(score))
+    else:
+     score = score - 1
+     print("Sorry, that is incorrect. The correct answer was {}. Your score is {}.".format(correct_word, score))
   elif question_format == 2:
-          q_b_input = input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, correct_word, easy_C, easy_D)).lower()
+    q_b_input = input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, correct_word, easy_C, easy_D)).lower()
+    if q_b_input == "b":
+     score = score + 1
+     print("That is correct! Your score is {}.".format(score))
+    else:
+     score = score - 1
+     print("Sorry, that is incorrect. The correct answer was {}. Your score is {}.".format(correct_word, score))
   elif question_format == 3:
-          q_c_input = input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, easy_B, correct_word, easy_D)).lower()
+    q_c_input = input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, easy_B, correct_word, easy_D)).lower()
+    if q_c_input == "c":
+     score = score + 1
+     print("That is correct! Your score is {}.".format(score))
+    else:
+     score = score - 1 
+     print("Sorry, that is incorrect. The correct answer was {}. Your score is {}.".format(correct_word, score))
   else:
-          q_d_input = input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, easy_B, easy_C, correct_word)).lower()
+    q_d_input = input("What is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(easy_word, easy_A, easy_B, easy_C, correct_word)).lower()
+    if q_d_input == "d":
+     score = score + 1
+     print("That is correct! Your score is {}.".format(score))
+    else:
+     score = score - 1
+     print("Sorry, that is incorrect. The correct answer was {}. Your score is {}.".format(correct_word, score))
 
 else:
   print("Final Score: {}. Thank you for playing!".format(score))
