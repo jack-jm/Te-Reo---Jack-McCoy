@@ -7,8 +7,7 @@ if show_instructions == "yes" or show_instructions == "y":
   print("Let's begin! Remember to answer with only the letter, not the word.\n")
 
 else:
-  print("Instructions:")
-  print("You will be given a word in English and you will have to match it to it's Te Reo counterpart out of four options. You will type either A, B, C, or D, depending on what option you think is most likely correct. The words will start easy and will later become more difficult. If you lose enough points so that you fall below the level up point, you will go down a level. When you want to stop, type anything other than enter and you will see your final score. \nLet's begin!\n")
+  print("Instructions:\nYou will be given a word in English and you will have to match it to it's Te Reo counterpart out of four options. You will type either A, B, C, or D, depending on what option you think is most likely correct. The words will start easy and will later become more difficult. If you lose enough points so that you fall below the level up point, you will go down a level. When you want to stop, type anything other than enter and you will see your final score. \nLet's begin!\n")
 
 # Component 2: Generate Question - 17/5/22 - Generate a random English word from a list and substitute into a question. Then generate four possible Te Reo meanings with one being correct.- V1
 #Score Variable - increases by one when answered correctly, decreases by one when answered incorrectly.
@@ -102,7 +101,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
   elif score == 4:
-    print(print("\n\nYou are now at medium difficulty.\n\n"))
+    print("\n\nYou are now at medium difficulty.\n\n")
     med_options = random.sample(med_tereo, 5)
     med_A = med_options[0]
     med_B = med_options[1]
@@ -123,7 +122,7 @@ while play_again == "":
       med_C = med_replacement
     elif med_D == med_correct_word:
       med_D = med_replacement
-    med_question_format = random.randint(1,4)\
+    med_question_format = random.randint(1,4)
 
     if med_question_format == 1:
       med_a_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_correct_word, med_B, med_C, med_D)).lower()    
@@ -169,7 +168,7 @@ while play_again == "":
        print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(med_correct_word, score))
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
         
-  #If score is between 4 and 8, the question generated is medium diffculty. Everything is the same excewpt the words are harder in difficulty.
+  #If score is between 4 and 8, the question generated is medium diffculty. Everything is the same except the words are harder in difficulty.
   elif score >= 4 and score < 8:
     med_options = random.sample(med_tereo, 5)
     med_A = med_options[0]
@@ -237,8 +236,76 @@ while play_again == "":
        print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(med_correct_word, score))
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
+  elif score == 8:
+    print("\n\nYou are now at hard difficulty. This is the final difficulty level. Feel free to keep playing for as long as you want or quit when you are finished.\n\n")
+    hard_options = random.sample(hard_tereo, 5)
+    hard_A = hard_options[0]
+    hard_B = hard_options[1]
+    hard_C = hard_options[2]
+    hard_D = hard_options[3]
+    hard_replacement = hard_options[4]
+  
+    ans_hard = dict(zip(hard_eng, hard_tereo))
+    x = random.randint(0,9)
+    hard_word = hard_eng[x]
+    hard_correct_word = hard_tereo[x]
+
+    #If any option is the same as the correct one a replacement is generated to fill in.
+    if hard_A == hard_correct_word:
+      hard_A = hard_replacement
+    elif hard_B == hard_correct_word:
+      hard_B = hard_replacement
+    elif hard_C == hard_correct_word:
+      hard_C = hard_replacement
+    elif hard_D == hard_correct_word:
+      hard_D = hard_replacement
+    hard_question_format = random.randint(1,4)
+    #This randomly selects the placement of the correct answer amongst the wrong answers.
+    if hard_question_format == 1:
+      hard_a_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_correct_word, hard_B, hard_C, hard_D)).lower()    
+      if hard_a_input == "a":
+       score = score + 1
+       print("That is correct! You gained one point and your score is {}.\n".format(score))
+       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+      else:
+       score = score - 1
+       print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(hard_correct_word, score))
+       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+
+    elif hard_question_format == 2:
+      hard_b_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_correct_word, hard_C, hard_D)).lower()
+      if hard_b_input == "b":
+       score = score + 1
+       print("That is correct! You gained one point and your score is {}.\n".format(score))
+       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+      else:
+       score = score - 1
+       print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(hard_correct_word, score))
+       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+        
+    elif hard_question_format == 3:
+      hard_c_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_correct_word, hard_D)).lower()
+      if hard_c_input == "c":
+       score = score + 1
+       print("That is correct! You gained one point and your score is {}.\n".format(score))
+       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+      else:
+       score = score - 1 
+       print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(hard_correct_word, score))
+       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+        
+    else:
+      hard_d_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_C, hard_correct_word)).lower()
+      if hard_d_input == "d":
+       score = score + 1
+       print("That is correct! You gained one point and your score is {}.\n".format(score))
+       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+      else:
+       score = score - 1
+       print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(hard_correct_word, score))
+       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
   #If score is greater than 8, question diffculty goes up to hard - only thing that changes is again the words.
-  if score >= 8:
+  elif score >= 8:
     hard_options = random.sample(hard_tereo, 5)
     hard_A = hard_options[0]
     hard_B = hard_options[1]
