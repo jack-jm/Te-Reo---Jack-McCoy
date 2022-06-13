@@ -30,7 +30,7 @@ while play_again == "":
   #If score is between 0 and 4, the question generated is easy diffculty.
   
   #Component 5: Difficulty Levels - 01/06/2022
-  if score >= 0 and score < 4:
+  if score < 4:
     easy_options = random.sample(easy_tereo, 5)
     easy_A = easy_options[0]
     easy_B = easy_options[1]
@@ -55,7 +55,7 @@ while play_again == "":
     easy_question_format = random.randint(1,4)
     #This randomly selects the placement of the correct answer amongst the wrong answers.
     if easy_question_format == 1:
-      easy_a_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, easy_word, easy_correct_word, easy_B, easy_C, easy_D)).lower()    
+      easy_a_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, easy_word, easy_correct_word, easy_B, easy_C, easy_D)).lower()    
       #Component 3: Check if user's answer is correct - 27/05/22 - Check if user's input matches correct answer and the either increase or decrease score.
       if easy_a_input == "a":
        score = score + 1
@@ -68,7 +68,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     elif easy_question_format == 2:
-      easy_b_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, easy_word, easy_A, easy_correct_word, easy_C, easy_D)).lower()
+      easy_b_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, easy_word, easy_A, easy_correct_word, easy_C, easy_D)).lower()
       if easy_b_input == "b":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -79,7 +79,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
         
     elif easy_question_format == 3:
-      easy_c_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, easy_word, easy_A, easy_B, easy_correct_word, easy_D)).lower()
+      easy_c_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, easy_word, easy_A, easy_B, easy_correct_word, easy_D)).lower()
       if easy_c_input == "c":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -90,7 +90,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
         
     else:
-      easy_d_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, easy_word, easy_A, easy_B, easy_C, easy_correct_word)).lower()
+      easy_d_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, easy_word, easy_A, easy_B, easy_C, easy_correct_word)).lower()
       if easy_d_input == "d":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -125,7 +125,7 @@ while play_again == "":
     med_question_format = random.randint(1,4)
 
     if med_question_format == 1:
-      med_a_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_correct_word, med_B, med_C, med_D)).lower()    
+      med_a_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_correct_word, med_B, med_C, med_D)).lower()    
       if med_a_input == "a":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -136,7 +136,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     elif med_question_format == 2:
-      med_b_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_correct_word, med_C, med_D)).lower()
+      med_b_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_correct_word, med_C, med_D)).lower()
       if med_b_input == "b":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -147,7 +147,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     elif med_question_format == 3:
-      med_c_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_B, med_correct_word, med_D)).lower()
+      med_c_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_B, med_correct_word, med_D)).lower()
       if med_c_input == "c":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -158,7 +158,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     else:
-      med_d_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_B, med_C, med_correct_word)).lower()
+      med_d_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_B, med_C, med_correct_word)).lower()
       if med_d_input == "d":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -193,7 +193,7 @@ while play_again == "":
     med_question_format = random.randint(1,4)\
 
     if med_question_format == 1:
-      med_a_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_correct_word, med_B, med_C, med_D)).lower()    
+      med_a_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_correct_word, med_B, med_C, med_D)).lower()    
       if med_a_input == "a":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -204,7 +204,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     elif med_question_format == 2:
-      med_b_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_correct_word, med_C, med_D)).lower()
+      med_b_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_correct_word, med_C, med_D)).lower()
       if med_b_input == "b":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -215,7 +215,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     elif med_question_format == 3:
-      med_c_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_B, med_correct_word, med_D)).lower()
+      med_c_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_B, med_correct_word, med_D)).lower()
       if med_c_input == "c":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -226,7 +226,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     else:
-      med_d_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_B, med_C, med_correct_word)).lower()
+      med_d_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, med_word, med_A, med_B, med_C, med_correct_word)).lower()
       if med_d_input == "d":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -262,7 +262,7 @@ while play_again == "":
     hard_question_format = random.randint(1,4)
     #This randomly selects the placement of the correct answer amongst the wrong answers.
     if hard_question_format == 1:
-      hard_a_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_correct_word, hard_B, hard_C, hard_D)).lower()    
+      hard_a_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_correct_word, hard_B, hard_C, hard_D)).lower()    
       if hard_a_input == "a":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -273,7 +273,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     elif hard_question_format == 2:
-      hard_b_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_correct_word, hard_C, hard_D)).lower()
+      hard_b_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_correct_word, hard_C, hard_D)).lower()
       if hard_b_input == "b":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -284,7 +284,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
         
     elif hard_question_format == 3:
-      hard_c_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_correct_word, hard_D)).lower()
+      hard_c_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_correct_word, hard_D)).lower()
       if hard_c_input == "c":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -295,7 +295,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
         
     else:
-      hard_d_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_C, hard_correct_word)).lower()
+      hard_d_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_C, hard_correct_word)).lower()
       if hard_d_input == "d":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -330,7 +330,7 @@ while play_again == "":
     hard_question_format = random.randint(1,4)
     #This randomly selects the placement of the correct answer amongst the wrong answers.
     if hard_question_format == 1:
-      hard_a_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_correct_word, hard_B, hard_C, hard_D)).lower()    
+      hard_a_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_correct_word, hard_B, hard_C, hard_D)).lower()    
       if hard_a_input == "a":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -341,7 +341,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
 
     elif hard_question_format == 2:
-      hard_b_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_correct_word, hard_C, hard_D)).lower()
+      hard_b_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_correct_word, hard_C, hard_D)).lower()
       if hard_b_input == "b":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -352,7 +352,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
         
     elif hard_question_format == 3:
-      hard_c_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_correct_word, hard_D)).lower()
+      hard_c_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_correct_word, hard_D)).lower()
       if hard_c_input == "c":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
@@ -363,7 +363,7 @@ while play_again == "":
        play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
         
     else:
-      hard_d_input = input("- Question {} -\nWhat is the English word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_C, hard_correct_word)).lower()
+      hard_d_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, hard_word, hard_A, hard_B, hard_C, hard_correct_word)).lower()
       if hard_d_input == "d":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
