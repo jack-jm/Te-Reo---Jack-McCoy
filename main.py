@@ -1,7 +1,5 @@
 import random
 
-#TESTING
-
 # Component 1: Instructions - 13/5/22 - Ask the user if they have played before and either show or don't show instructions.
 show_instructions = input("Kia Ora, have you played the quiz before?\n").lower()
 
