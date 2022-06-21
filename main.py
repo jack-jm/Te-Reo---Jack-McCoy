@@ -1,5 +1,8 @@
 import random
 
+def instructions():
+    print("Instructions:\nYou will be given a word in English and you will have to match it to it's Te Reo counterpart out of four options. You will type either A, B, C, or D, depending on what option you think is most likely correct. The words will start easy and will later become more difficult. If you lose enough points so that you fall below the level up point, you will go down a level. When you want to stop, type anything other than enter and you will see your final score. \nLet's begin!\n")
+
 # Component 1: Instructions - 13/5/22 - Ask the user if they have played before and either show or don't show instructions.
 show_instructions = input("Kia Ora, have you played the quiz before?\n").lower()
 
@@ -7,7 +10,7 @@ if show_instructions == "yes" or show_instructions == "y":
   print("Let's begin! Remember to answer with only the letter, not the word.\n")
 
 else:
-  print("Instructions:\nYou will be given a word in English and you will have to match it to it's Te Reo counterpart out of four options. You will type either A, B, C, or D, depending on what option you think is most likely correct. The words will start easy and will later become more difficult. If you lose enough points so that you fall below the level up point, you will go down a level. When you want to stop, type anything other than enter and you will see your final score. \nLet's begin!\n")
+  instructions()
 
 # Component 2: Generate Question - 17/5/22 - Generate a random English word from a list and substitute into a question. Then generate four possible Te Reo meanings with one being correct.- V1
 #Score Variable - increases by one when answered correctly, decreases by one when answered incorrectly.
