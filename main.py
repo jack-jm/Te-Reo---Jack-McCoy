@@ -1,5 +1,7 @@
+# Import the random library
 import random
 
+# Functions go here
 def generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D):
    #This randomly selects the placement of the correct answer amongst the wrong answers.
     if question_format == 1:
@@ -9,50 +11,46 @@ def generate_question(score, question_format, question_number, question_word, co
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
        #Component 4: Multiple Questions - 31/05/22 - Ask user if they want to continue and either ask another question or tell them their final score and end program.
-       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+
       else:
        score = score - 1
        print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(correct_word, score))
-       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+
 
     elif question_format == 2:
       b_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, question_word, A, correct_word, C, D)).lower()
       if b_input == "b":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
-       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+
       else:
        score = score - 1
        print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(correct_word, score))
-       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+
         
     elif question_format == 3:
       c_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, question_word, A, B, correct_word, D)).lower()
       if c_input == "c":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
-       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+
       else:
        score = score - 1 
        print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(correct_word, score))
-       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+
         
     else:
       d_input = input("- Question {} -\nWhat is the Te Reo word for {}?\nA: {}\nB: {}\nC: {}\nD: {}\n".format(question_number, question_word, A, B, C, correct_word)).lower()
       if d_input == "d":
        score = score + 1
        print("That is correct! You gained one point and your score is {}.\n".format(score))
-       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
+
       else:
        score = score - 1
        print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(correct_word, score))
-       play_again = input("Press <enter> to keep playing or type anything else to quit.\n").lower()
     return score
 
-
-def instructions():
-    print("Instructions:\nYou will be given a word in English and you will have to match it to it's Te Reo counterpart out of four options. You will type either A, B, C, or D, depending on what option you think is most likely correct. The words will start easy and will later become more difficult. If you lose enough points so that you fall below the level up point, you will go down a level. When you want to stop, type anything other than enter and you will see your final score. \nLet's begin!\n")
-
+# Main routine goes here
 # Component 1: Instructions - 13/5/22 - Ask the user if they have played before and either show or don't show instructions.
 show_instructions = input("Kia Ora, have you played the quiz before?\n").lower()
 
@@ -60,9 +58,10 @@ if show_instructions == "yes" or show_instructions == "y":
   print("Let's begin! Remember to answer with only the letter, not the word.\n")
 
 else:
-  instructions()
+    print("Instructions:\nYou will be given a word in English and you will have to match it to it's Te Reo counterpart out of four options. You will type either A, B, C, or D, depending on what option you think is most likely correct. The words will start easy and will later become more difficult. If you lose enough points so that you fall below the level up point, you will go down a level. When you want to stop, type anything other than enter and you will see your final score. \nLet's begin!\n")
 
 # Component 2: Generate Question - 17/5/22 - Generate a random English word from a list and substitute into a question. Then generate four possible Te Reo meanings with one being correct.- V1
+  
 #Score Variable - increases by one when answered correctly, decreases by one when answered incorrectly.
 score = 0
 #Question No. Variable - Increases every question, prints number before asking the question.
@@ -107,16 +106,7 @@ while play_again == "":
       D = replacement
     question_format = random.randint(1,4)
     #This randomly selects the placement of the correct answer amongst the wrong answers.
-    score = generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D)
+  score = generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D)
+  play_again = input("Press <enter> to play or type anything else to quit.\n").lower()
 
-    score = generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D)
-        
-  #If score is between 4 and 8, the question generated is medium diffculty. Everything is the same except the words are harder in difficulty.
-    score = generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D)
-
-    score = generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D)
-  
-    score = generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D)
-        
-else:
-  print("Thank you for playing! Your final score is {}.".format(score))
+print("Your final score is {}".format(score))
