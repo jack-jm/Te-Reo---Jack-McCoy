@@ -13,8 +13,7 @@ def generate_question(score, question_format, question_number, question_word, co
        #Component 4: Multiple Questions - 31/05/22 - Ask user if they want to continue and either ask another question or tell them their final score and end program.
 
       else:
-       score = score - 1
-       print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(correct_word, score))
+       print("Sorry, that is incorrect. The correct answer was {}. Your score did not change and is still {}.\n".format(correct_word, score))
 
 
     elif question_format == 2:
@@ -24,8 +23,7 @@ def generate_question(score, question_format, question_number, question_word, co
        print("That is correct! You gained one point and your score is {}.\n".format(score))
 
       else:
-       score = score - 1
-       print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(correct_word, score))
+       print("Sorry, that is incorrect. The correct answer was {}. Your score did not change and is still {}.\n".format(correct_word, score))
 
         
     elif question_format == 3:
@@ -35,8 +33,7 @@ def generate_question(score, question_format, question_number, question_word, co
        print("That is correct! You gained one point and your score is {}.\n".format(score))
 
       else:
-       score = score - 1 
-       print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(correct_word, score))
+       print("Sorry, that is incorrect. The correct answer was {}. Your score did not change and is still {}.\n".format(correct_word, score))
 
         
     else:
@@ -46,8 +43,7 @@ def generate_question(score, question_format, question_number, question_word, co
        print("That is correct! You gained one point and your score is {}.\n".format(score))
 
       else:
-       score = score - 1
-       print("Sorry, that is incorrect. The correct answer was {}. You lost one point and your score is {}.\n".format(correct_word, score))
+       print("Sorry, that is incorrect. The correct answer was {}. Your score did not change and is still {}.\n".format(correct_word, score))
     return score
 
 # Main routine goes here
@@ -58,7 +54,7 @@ if show_instructions == "yes" or show_instructions == "y":
   print("Let's begin! Remember to answer with only the letter, not the word.\n")
 
 else:
-    print("Instructions:\nYou will be given a word in English and you will have to match it to it's Te Reo counterpart out of four options. You will type either A, B, C, or D, depending on what option you think is most likely correct. The words will start easy and will later become more difficult. If you lose enough points so that you fall below the level up point, you will go down a level. When you want to stop, type anything other than enter and you will see your final score. \nLet's begin!\n")
+    print("Instructions:\nYou will be given a word in English and you will have to match it to it's Te Reo counterpart out of four options. You will type either A, B, C, or D, depending on what option you think is most likely correct. There are ten questions and you will be given your final score when you reach the end. If you want to quit, type anything other than enter and you will see your final score. \nLet's begin!\n")
 
 # Component 2: Generate Question - 17/5/22 - Generate a random English word from a list and substitute into a question. Then generate four possible Te Reo meanings with one being correct.- V1
   
@@ -67,12 +63,8 @@ score = 0
 #Question No. Variable - Increases every question, prints number before asking the question.
 question_number = 0
 #Lists of words based on difficulty with Te Reo counterparts
-easy_tereo = ["Kia Ora", "Kai", "Aroha", "Iwi", "Marae", "Aotearoa", "Whānau", "Mahi", "Whenua", "Taonga"]
-easy_eng = ["Greetings", "Food", "Love", "Tribe", "Meeting Ground", "New Zealand", "Family", "Work", "Land", "Treasure"]
-med_tereo = ["Tangi", "Maunga", "Moana", "Tamariki", "Waka", "Awa", "Hīkoi", "Tāne", "Wahine", "Waiata", "Whare"]
-med_eng = ["Funeral", "Mountain", "Ocean", "Children", "Canoe", "River", "Walk", "Man", "Woman", "Song", "House"]
-hard_tereo = ["Hui", "Whakapapa", "Motu", "Koha", "Roto", "Mana", "Karakia", "Puku", "Kaumātua", "Kura"]
-hard_eng = ["Gathering", "Genealogy", "Island", "Gift", "Lake", "Prestige", "Prayer", "Stomach", "Elder", "School"]
+tereo_list = ["Kia Ora", "Kai", "Aroha", "Iwi", "Marae", "Aotearoa", "Whānau", "Mahi", "Whenua", "Taonga", "Tangi", "Maunga", "Moana", "Tamariki", "Waka", "Awa", "Hīkoi", "Tāne", "Wahine", "Waiata", "Whare", "Hui", "Whakapapa", "Motu", "Koha", "Roto", "Mana", "Karakia", "Puku", "Kaumātua", "Kura"]
+eng_list = ["Greetings", "Food", "Love", "Tribe", "Meeting Ground", "New Zealand", "Family", "Work", "Land", "Treasure", "Funeral", "Mountain", "Ocean", "Children", "Canoe", "River", "Walk", "Man", "Woman", "Song", "House", "Gathering", "Genealogy", "Island", "Gift", "Lake", "Prestige", "Prayer", "Stomach", "Elder", "School"]
 
 #Play Again Variable - If user types <enter>, it asks a question, if anything else is entered, the program ends.
 play_again = input("Press <enter> to play or type anything else to quit.\n").lower()
@@ -82,19 +74,19 @@ while play_again == "":
   #If score is between 0 and 4, the question generated is easy diffculty.
   
   #Component 5: Difficulty Levels - 01/06/2022
-  if score < 4:
-    options = random.sample(easy_tereo, 5)
+  if question_number <= 10:
+    options = random.sample(tereo_list, 5)
     A = options[0]
     B = options[1]
     C = options[2]
     D = options[3]
     replacement = options[4]
   
-    ans = dict(zip(easy_eng, easy_tereo))
-    x = random.randint(0,9)
-    question_word = easy_eng[x]
-    correct_word = easy_tereo[x]
-
+    ans = dict(zip(eng_list, tereo_list))
+    x = random.randint(0,29)
+    question_word = eng_list[x]
+    correct_word = tereo_list[x]
+  
     #If any option is the same as the correct one a replacement is generated to fill in.
     if A == correct_word:
       A = replacement
@@ -105,8 +97,16 @@ while play_again == "":
     elif D == correct_word:
       D = replacement
     question_format = random.randint(1,4)
-    #This randomly selects the placement of the correct answer amongst the wrong answers.
-  score = generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D)
-  play_again = input("Press <enter> to play or type anything else to quit.\n").lower()
 
+    score = generate_question(score, question_format, question_number, question_word, correct_word,A, B, C, D)
+    play_again = input("Press <enter> to play or type anything else to quit.\n").lower()
+
+  if question_number == 10:
+    if score >= 5:
+      print("Congratulations! You have finished the quiz and answered half or more of the questions correctly! Your final score was {}.".format(score))
+    else:
+      print("Congratulations! You have finished the quiz but unfortunately you answered less than half of the questions correctly. Your final score was {}.".format(score))
+  
+    #This randomly selects the placement of the correct answer amongst the wrong answers.
+    
 print("Your final score is {}".format(score))
